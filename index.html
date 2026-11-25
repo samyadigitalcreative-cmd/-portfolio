@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Samya Khalid — Web Designer &amp; Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3fb;--bg2:#ece7f6;--card:#fff;--text:#1d1530;--muted:#665c7d;--accent:#e0457b;--accent2:#6d4ee8;--line:#ded6ee;--glow:rgba(109,78,232,.18);color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#130e20;--bg2:#1b1430;--card:#221a38;--text:#f4efff;--muted:#a99fc4;--accent:#ff7aa5;--accent2:#a18cff;--line:#33284f;--glow:rgba(161,140,255,.2);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#130e20;--bg2:#1b1430;--card:#221a38;--text:#f4efff;--muted:#a99fc4;--accent:#ff7aa5;--accent2:#a18cff;--line:#33284f;--glow:rgba(161,140,255,.2);color-scheme:dark}
+
+
+html{scroll-behavior:smooth;scroll-padding-top:70px;height:auto}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;margin:0;line-height:1.05;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);left:50%;top:30%;z-index:0}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.15rem}
+.logo i{color:var(--accent);font-style:normal}
+nav{display:flex;gap:26px;align-items:center;font-size:.95rem;color:var(--muted)}
+nav a:hover{color:var(--text)}
+.pill{background:var(--text);color:var(--bg);padding:8px 20px;border-radius:999px;font-weight:700}
+nav .pill:hover{color:var(--bg);background:var(--accent)}
+main{position:relative;z-index:1}
+/* hero */
+.hero{padding:70px 0 40px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3rem,9vw,6.6rem);font-weight:800}
+.hero h1 span{display:block;overflow:hidden}
+.hero h1 span b{display:block;font-weight:800;transform:translateY(105%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 span:nth-child(2) b{animation-delay:.12s;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes up{to{transform:none}}
+.role{color:var(--muted);font-size:1.1rem;max-width:44ch;margin:24px 0 30px;opacity:0;animation:fade .8s .6s forwards}
+.btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fade .8s .8s forwards}
+@keyframes fade{to{opacity:1}}
+.btn{padding:14px 28px;border-radius:999px;font-weight:700;font-size:.95rem;display:inline-block;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.p{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 10px 30px -10px var(--accent)}
+.btn.s{border:1.5px solid var(--line);background:var(--card)}
+/* browser frame */
+.frame{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -25px rgba(40,20,90,.45)}
+.bar{display:flex;gap:6px;align-items:center;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--line)}
+.bar i{width:10px;height:10px;border-radius:50%;background:#ff6b6b}.bar i:nth-child(2){background:#ffc542}.bar i:nth-child(3){background:#3ddc97}
+.bar em{margin-left:10px;font-style:normal;font-size:.72rem;color:var(--muted);background:var(--card);border-radius:99px;padding:2px 14px;flex:1;max-width:240px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.view{--h:340px;height:var(--h);overflow:hidden;position:relative;background:#fff}
+.view img{width:100%;display:block;transition:transform 7s cubic-bezier(.4,0,.2,1)}
+.frame:hover .view img{transform:translateY(calc(-100% + var(--h)))}
+.hero .frame{transform:rotate(3deg);animation:float 6s ease-in-out infinite,fade 1s .3s backwards}
+.hero .view{--h:380px}
+.hero .view img{animation:scrollhero 16s ease-in-out infinite alternate;transition:none}
+.hero .frame:hover .view img{transform:none}
+@keyframes scrollhero{to{transform:translateY(calc(-100% + 380px))}}
+@keyframes float{50%{transform:rotate(3deg) translateY(-12px)}}
+/* hero2 */
+.hero2{text-align:center;padding:70px 22px 20px}
+.hi{font-weight:700;color:var(--accent);margin:0 0 6px;font-size:1.05rem;opacity:0;animation:fade .6s .1s forwards}
+.hero2 h1{font-size:clamp(2.8rem,10vw,7rem);font-weight:800;letter-spacing:-.035em}
+.hero2 h1 span{display:block;overflow:hidden;padding-bottom:.08em}
+.hero2 h1 span b{display:block;transform:translateY(105%);animation:up .9s .15s cubic-bezier(.2,.8,.2,1) forwards;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero2 .role{margin:20px auto 28px;text-align:center}
+.hero2 .btns{justify-content:center}
+.btn.wa{background:#25d366;color:#07281a;box-shadow:0 10px 30px -10px rgba(37,211,102,.8)}
+.fan{position:relative;height:430px;margin-top:56px;display:flex;justify-content:center;align-items:flex-start}
+.fan .frame{position:absolute;width:min(380px,44vw);top:0;opacity:0;animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.fan .view{--h:320px}
+.fan .f1{--r:-7deg;--x:-300px;animation-delay:1s}
+.fan .f2{--r:0deg;--x:0px;z-index:2;animation-delay:.8s;top:-18px}
+.fan .f3{--r:7deg;--x:300px;animation-delay:1.2s}
+@keyframes rise{from{opacity:0;transform:translate(var(--x),80px) rotate(0)}to{opacity:1;transform:translate(var(--x),0) rotate(var(--r))}}
+.fan .frame:hover{z-index:5}
+@media(max-width:820px){.fan{height:360px}.fan .f1,.fan .f3{display:none}.fan .frame{width:min(340px,86vw)}.fan .f2{animation-delay:.6s}}
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:18px 0;margin:50px 0;position:relative;z-index:1;background:var(--bg2)}
+.track{display:flex;gap:48px;width:max-content;animation:slide 28s linear infinite;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.5rem;color:var(--muted)}
+.track span::after{content:"✦";color:var(--accent);margin-left:48px}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* work */
+section{padding:60px 0}
+h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:10px}
+.sub{color:var(--muted);margin:0 0 50px;max-width:52ch}
+.proj{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center;margin-bottom:90px}
+.proj:nth-child(even) .frame{order:2}
+.proj h3{font-size:2rem;margin-bottom:12px}
+.proj p{color:var(--muted);margin:0 0 18px;max-width:46ch}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tags span{font-size:.8rem;font-weight:500;padding:4px 14px;border-radius:99px;background:var(--bg2);border:1px solid var(--line)}
+.vis{font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.vis:hover{color:var(--accent)}
+.soon{color:var(--muted);font-size:.9rem}
+/* css mockups */
+.mock{height:100%;padding:26px;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.mock h4{font-family:'Bricolage Grotesque',sans-serif;font-size:1.9rem;margin:0;line-height:1.1}
+.mock small{opacity:.85;font-size:.9rem}
+.mock div{display:flex;gap:8px;flex-wrap:wrap}
+.mock div u{text-decoration:none;font-size:.75rem;padding:5px 12px;border-radius:99px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3)}
+.mock.a{background:linear-gradient(135deg,#0f766e,#1fa89b)}
+.mock.m{background:linear-gradient(135deg,#3b0d1c,#8a2a45);font-family:Georgia,serif;text-align:center;align-items:center}
+.mock.m h4{font-family:Georgia,serif;font-weight:400;letter-spacing:.14em;font-size:1.7rem}
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:start}
+.about p{color:var(--muted);margin:0 0 16px;max-width:56ch}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.skills span{background:var(--card);border:1px solid var(--line);padding:8px 18px;border-radius:99px;font-size:.92rem;transition:.25s}
+.skills span:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-3px)}
+.nums{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.nums div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 20px}
+.nums b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;line-height:1;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nums span{color:var(--muted);font-size:.9rem}
+/* contact */
+.contact{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;border-radius:28px;padding:70px 24px;text-align:center;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.12);right:-90px;top:-120px;animation:float2 9s ease-in-out infinite}
+@keyframes float2{50%{transform:translate(-30px,30px)}}
+.contact h2{position:relative}.contact p{opacity:.92;margin:0 auto 30px;position:relative;max-width:40ch}
+.contact .btn{background:#fff;color:#2a1650;margin:5px;position:relative}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--line);margin-top:40px;padding:56px 0 96px;color:var(--muted);font-size:.92rem}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+.foot .logo{color:var(--text);font-size:1.4rem;display:inline-block;margin-bottom:12px}
+.foot p{margin:0;max-width:36ch}
+.foot h5{font-family:'Bricolage Grotesque',sans-serif;font-size:1rem;color:var(--text);margin:0 0 14px}
+.foot a.l{display:block;margin-bottom:9px;transition:.2s}
+.foot a.l:hover{color:var(--accent);transform:translateX(4px)}
+.copy{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.85rem}
+.copy a{color:var(--accent);font-weight:700}
+@media(max-width:720px){.foot{grid-template-columns:1fr}}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;background:#25d366;color:#07281a;font-weight:700;padding:13px 22px;border-radius:99px;box-shadow:0 10px 30px -8px rgba(37,211,102,.7);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:820px){nav a:not(.pill){display:none}.hero,.proj,.about{grid-template-columns:1fr}.proj:nth-child(even) .frame{order:0}.hero .frame{transform:none;animation:none;opacity:1}.view{--h:260px}.proj{margin-bottom:60px}}
+@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.rv,.hero h1 span b,.hero2 h1 span b,.role,.btns,.hi{opacity:1;transform:none}.fan .frame{opacity:1;transform:translate(var(--x),0) rotate(var(--r))}}
+</style>
+</head>
+<body>
+<div id="glow"></div>
+<header><div class="wrap"><a class="logo" href="#top">Samya<i>.</i>Khalid</a>
+<nav><a href="#work">Work</a><a href="#about">About</a><a class="pill" href="#contact">Contact</a></nav></div></header>
+
+<main id="top">
+<div class="wrap hero2">
+<h1><span><b>Samya Khalid</b></span></h1>
+<p class="role">I design and build websites that bring customers in. Online stores, business sites and academy sites, all made to work on every screen.</p>
+<div class="btns"><a class="btn p" href="#work">See my work</a><a class="btn s" href="#contact">Contact me</a></div>
+<div class="fan">
+<div class="frame f1"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img alt="Power IT World website" src="assets/power.jpg"></div></div>
+<div class="frame f2"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img alt="Zariya Bag Collection website" src="assets/zariya.jpg"></div></div>
+<div class="frame f3"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img alt="INNO website" src="assets/inno.jpg"></div></div>
+</div></div>
+
+<div class="marquee"><div class="track"><span>Web Design</span><span>WordPress</span><span>Responsive Layouts</span><span>Online Stores</span><span>JavaScript</span><span>Elementor</span><span>Divi</span><span>Landing Pages</span><span>Web Design</span><span>WordPress</span><span>Responsive Layouts</span><span>Online Stores</span><span>JavaScript</span><span>Elementor</span><span>Divi</span><span>Landing Pages</span></div></div>
+
+<section id="work"><div class="wrap">
+<h2 class="rv">Selected work</h2><p class="sub rv">Hover over a website to scroll through the full page.</p>
+
+<article class="proj rv"><div class="frame"><div class="bar"><i></i><i></i><i></i><em>zariya.com</em></div><div class="view"><img alt="Zariya Bag Collection" src="assets/zariya.jpg"></div></div>
+<div><h3>Zariya Bag Collection</h3><p>A WordPress store for handbags. Shoppers browse by occasion, see bestsellers and offers, check the size guide and take a quiz to find their bag.</p><div class="tags"><span>WordPress</span><span>WooCommerce</span><span>Elementor</span></div></div></article>
+
+<article class="proj rv"><div class="frame"><div class="bar"><i></i><i></i><i></i><em>saniyaawebsite.netlify.app</em></div><div class="view"><div class="mock a"><h4>Learn Skills.<br>Build Your Future.</h4><small>Practical digital skills, expert guidance.</small><div><u>Web Development</u><u>Graphic Design</u><u>AI Course</u><u>Freelancing</u></div></div></div></div>
+<div><h3>AIMS Academy</h3><p>A website for a skills academy. It has course pages, an eligibility checker, a fee calculator with discounts, an FAQ and a WhatsApp enquiry button.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a class="vis" href="https://saniyaawebsite.netlify.app/" target="_blank" rel="noopener">Visit live site</a></div></article>
+
+<article class="proj rv"><div class="frame"><div class="bar"><i></i><i></i><i></i><em>vermillion-pastelito.netlify.app</em></div><div class="view"><div class="mock m"><h4>MAISON VALLIÈRE</h4><small>Haute couture &amp; private styling</small><div><u>Couture</u><u>Ready-to-wear</u><u>Styling</u></div></div></div></div>
+<div><h3>Maison Vallière</h3><p>A luxury fashion house website for bespoke haute couture, ready-to-wear collections and private styling.</p><div class="tags"><span>Luxury design</span><span>Responsive</span><span>Fashion</span></div><a class="vis" href="https://vermillion-pastelito.netlify.app/" target="_blank" rel="noopener">Visit live site</a></div></article>
+
+<article class="proj rv"><div class="frame"><div class="bar"><i></i><i></i><i></i><em>inno</em></div><div class="view"><img alt="INNO website" src="assets/inno.jpg"></div></div>
+<div><h3>INNO</h3><p>A creative agency website with services, team, achievements, testimonials, a portfolio gallery and a blog.</p><div class="tags"><span>WordPress</span><span>Divi</span><span>Agency</span></div></div></article>
+
+<article class="proj rv"><div class="frame"><div class="bar"><i></i><i></i><i></i><em>poweritworld</em></div><div class="view"><img alt="Power IT World website" src="assets/power.jpg"></div></div>
+<div><h3>Power IT World Ltd</h3><p>A recycling services website. Visitors see how it works, the materials recycled, blog posts and FAQs, then send a message through the contact form.</p><div class="tags"><span>WordPress</span><span>Divi</span><span>Business</span></div></div></article>
+</div></section>
+
+<section id="about"><div class="wrap about">
+<div class="rv"><h2>About me</h2>
+<p>I’m Samya, a web designer and developer. I like turning an idea into a website that is simple to use and nice to look at.</p>
+<p>I work with custom code and with WordPress, and I care about clean layouts, mobile-friendly design and clear buttons so visitors know what to do next.</p>
+<div class="skills"><span>HTML &amp; CSS</span><span>JavaScript</span><span>WordPress</span><span>WooCommerce</span><span>Elementor</span><span>Divi</span><span>Responsive design</span></div></div>
+<div class="nums rv"><div><b data-n="5">0</b><span>Websites built</span></div><div><b data-n="2">0</b><span>Live coded sites</span></div><div><b data-n="3">0</b><span>WordPress builds</span></div><div><b data-n="100">0</b><span>% mobile friendly</span></div></div>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="contact rv">
+<h2>Let’s build your website</h2>
+<p>Tell me about your project. Use the WhatsApp button at the bottom right, or send me an email.</p>
+<a class="btn" href="mailto:samyakhalidwork@gmail.com">samyakhalidwork@gmail.com</a>
+</div></div></section>
+</main>
+<footer><div class="wrap"><div class="foot">
+<div><a class="logo" href="#top">Samya<i>.</i>Khalid</a><p>Web designer and developer. I build clean, responsive websites for stores, academies and businesses.</p></div>
+<div><h5>Quick links</h5><a class="l" href="#top">Home</a><a class="l" href="#work">Work</a><a class="l" href="#about">About</a><a class="l" href="#contact">Contact</a></div>
+<div><h5>Get in touch</h5><a class="l" href="mailto:samyakhalidwork@gmail.com">samyakhalidwork@gmail.com</a></div>
+</div><div class="copy"><span>© 2026 Samya Khalid. All rights reserved.</span><a href="#top">Back to top ↑</a></div></div></footer>
+<a class="fab" href="https://wa.me/923470145268?text=Hello%20Samya%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+(function(){
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(e.target.querySelectorAll){e.target.querySelectorAll('[data-n]').forEach(count)}io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+function count(el){var n=+el.dataset.n,i=0,t=setInterval(function(){i+=Math.max(1,Math.ceil(n/30));if(i>=n){i=n;clearInterval(t)}el.textContent=i},35)}
+var g=document.getElementById('glow');
+window.addEventListener('pointermove',function(e){g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'},{passive:true});
+})();
+</script>
+</body>
+</html>
